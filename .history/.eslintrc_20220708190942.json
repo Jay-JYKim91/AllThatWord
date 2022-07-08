@@ -45,5 +45,6 @@
         ],
         "@typescript-eslint/explicit-function-return-type": 0,
         "react/function-component-definition": 0
+        // "@typescript-eslint/explicit-function-return-type": 0
     }
 }

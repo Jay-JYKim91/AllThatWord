@@ -44,7 +44,7 @@ const App: React.FC = () => {
             </button>
           )}
           {false && (
-            <button type="button" onClick={navigateAdmin}>
+            <button type="button">
               <img
                 className="w-[45px] h-[45px] border-2 rounded-full bg-white"
                 src="./avatar.png"

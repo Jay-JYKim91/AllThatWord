@@ -12,7 +12,8 @@ module.exports = {
           500: '#2A9134',
           700: '#137547',
           900: '#054A29',
-        }
+        },
+        'white': '#FFF'
       },
       fontFamily: {
         'heading_font': ['Roboto', 'sans-serif'],

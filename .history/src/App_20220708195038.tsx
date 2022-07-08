@@ -16,42 +16,27 @@ const App: React.FC = () => {
     navigate('/login');
   };
 
-  const navigateAdmin = () => {
-    navigate('/admin');
-  };
-
   return (
     <div className="app font-body_font">
-      <header className="px-6 md:px-9 lg:px-12 py-4 md:py-6 lg:py-8 shadow-md bg-primary-900">
+      <header className="px-6 md:px-9 lg:px-12 py-4 shadow-md bg-primary-900">
         <div className="flex justify-between max-w-7xl m-auto">
           <button type="button" onClick={navigateHome}>
             <img
-              className="w-[50px] h-[50px] md:hidden"
+              className="w-[50px] h-[50px]"
               src="./logo_small.png"
               alt="logo"
             />
-            <img className=" hidden md:block" src="./logo_big.png" alt="logo" />
           </button>
-          {true && (
-            <button
-              type="button"
-              onClick={navigateLogin}
-              className="flex self-center border-2 border-white p-2 bg-primary-900 text-white rounded 
+          <button
+            type="button"
+            onClick={navigateLogin}
+            className="flex self-center border-2 border-white p-2 bg-primary-900 text-white rounded 
             transition hover:bg-white hover:text-primary-900 hover:ease-linear"
-            >
-              <img src="./login.png" alt="login" className="w-6 mr-2" />
-              <p className="font-heading_font">LOGIN</p>
-            </button>
-          )}
-          {false && (
-            <button type="button" onClick={navigateAdmin}>
-              <img
-                className="w-[45px] h-[45px] border-2 rounded-full bg-white"
-                src="./avatar.png"
-                alt="avatar"
-              />
-            </button>
-          )}
+          >
+            <img src="./login.png" alt="login" className="w-6 mr-2" />
+            <p className="font-heading_font">LOGIN</p>
+          </button>
+          {/* <img className="w-[50px] h-[50px]" src="./avatar.png" alt="avatar" /> */}
         </div>
       </header>
       <main className="flex-1">
@@ -62,7 +47,7 @@ const App: React.FC = () => {
           <Route path="admin" element={<Admin />} />
         </Routes>
       </main>
-      <footer className="flex flex-col items-center justify-center px-12 py-4 md:py-6 lg:py-8 bg-primary-900 text-white">
+      <footer className="flex flex-col items-center justify-center px-12 py-4 bg-primary-900 text-primary-100">
         <img src="/logo_big.png" alt="logo" width="140" className="mb-2" />
         <p className="font-body2_font">
           Developed by&nbsp;

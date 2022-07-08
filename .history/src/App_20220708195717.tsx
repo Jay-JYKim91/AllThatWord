@@ -16,10 +16,6 @@ const App: React.FC = () => {
     navigate('/login');
   };
 
-  const navigateAdmin = () => {
-    navigate('/admin');
-  };
-
   return (
     <div className="app font-body_font">
       <header className="px-6 md:px-9 lg:px-12 py-4 md:py-6 lg:py-8 shadow-md bg-primary-900">
@@ -44,13 +40,11 @@ const App: React.FC = () => {
             </button>
           )}
           {false && (
-            <button type="button" onClick={navigateAdmin}>
-              <img
-                className="w-[45px] h-[45px] border-2 rounded-full bg-white"
-                src="./avatar.png"
-                alt="avatar"
-              />
-            </button>
+            <img
+              className="w-[45px] h-[45px] border-2 rounded-full bg-white"
+              src="./avatar.png"
+              alt="avatar"
+            />
           )}
         </div>
       </header>

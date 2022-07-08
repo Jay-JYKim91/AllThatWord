@@ -16,10 +16,6 @@ const App: React.FC = () => {
     navigate('/login');
   };
 
-  const navigateAdmin = () => {
-    navigate('/admin');
-  };
-
   return (
     <div className="app font-body_font">
       <header className="px-6 md:px-9 lg:px-12 py-4 md:py-6 lg:py-8 shadow-md bg-primary-900">
@@ -30,28 +26,22 @@ const App: React.FC = () => {
               src="./logo_small.png"
               alt="logo"
             />
-            <img className=" hidden md:block" src="./logo_big.png" alt="logo" />
+            <img
+              className="w-[50px] h-[50px] hidden md:block"
+              src="./logo_big.png"
+              alt="logo"
+            />
           </button>
-          {true && (
-            <button
-              type="button"
-              onClick={navigateLogin}
-              className="flex self-center border-2 border-white p-2 bg-primary-900 text-white rounded 
+          <button
+            type="button"
+            onClick={navigateLogin}
+            className="flex self-center border-2 border-white p-2 bg-primary-900 text-white rounded 
             transition hover:bg-white hover:text-primary-900 hover:ease-linear"
-            >
-              <img src="./login.png" alt="login" className="w-6 mr-2" />
-              <p className="font-heading_font">LOGIN</p>
-            </button>
-          )}
-          {false && (
-            <button type="button" onClick={navigateAdmin}>
-              <img
-                className="w-[45px] h-[45px] border-2 rounded-full bg-white"
-                src="./avatar.png"
-                alt="avatar"
-              />
-            </button>
-          )}
+          >
+            <img src="./login.png" alt="login" className="w-6 mr-2" />
+            <p className="font-heading_font">LOGIN</p>
+          </button>
+          {/* <img className="w-[50px] h-[50px]" src="./avatar.png" alt="avatar" /> */}
         </div>
       </header>
       <main className="flex-1">
