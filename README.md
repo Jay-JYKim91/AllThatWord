@@ -23,7 +23,7 @@ TBD
 
 - React
 - TypeScript
-- Tailwind (Dark mode?)
+- Tailwind
 - ESLint, Prettier
 - react-router-dom
 - Framer-motion - TBD
@@ -41,13 +41,27 @@ TBD
 
 ### Layout
 
-| Page            | Desktop                                 | Mobile                                 |
+| Page            | Desktop Layout                          | Function                                 |
 | --------------- | --------------------------------------- | -------------------------------------- |
-| Main            | ![](./docs/main_desktop.jpg)            | ![](./docs/main_mobile.jpg)            |
-| Search          | ![](./docs/search_desktop.jpg)          | ![](./docs/search_mobile.jpg)          |
-| Login           | ![](./docs/login_desktop.jpg)           | ![](./docs/login_mobile.jpg)           |
-| Admin_list      | ![](./docs/admin_list_desktop.jpg)      | ![](./docs/admin_list_mobile.jpg)      |
-| Admin_flashcard | ![](./docs/admin_flashcard_desktop.jpg) | ![](./docs/admin_flashcard_mobile.jpg) |
+| Main            | ![](./docs/main_desktop.jpg)            | - LogIn button: move to login page <br /> - Search button: move to search page with results            |
+| Search          | ![](./docs/search_desktop.jpg)          | - Speaker button: listen to pronunciation <br /> - Save button: save word to user's vocabularies          |
+| Login           | ![](./docs/login_desktop.jpg)           | - Sign in with Google button <br /> - Sign in with Github button           |
+| Admin_list      | ![](./docs/admin_list_desktop.jpg)      | - Flashcard mode button: switch view mode to flashcard mode    |
+| Admin_flashcard | ![](./docs/admin_flashcard_desktop.jpg) | - List mode button: switch view mode to list mode <br /> - User can flip flashcard to check the definition of the word  |
+
+### Prioritization
+#### Must have
+- Users can use search function by word.
+- Users can listen to the pronunciation of the word.
+- Users can move to another page when they click antonyms or synonyms.
+
+#### Should have
+- Users can login using google or github.
+- Users can save words to their vocabularies.
+- Users can see their vocabularies on both list mode and flashcard mode.
+
+#### Nice to have
+- Users can use dark mode.
 
 ---
 
