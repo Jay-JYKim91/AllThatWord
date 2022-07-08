@@ -10,7 +10,7 @@ const App: React.FC = () => {
   return (
     <div className="app">
       <header>
-        <p>header</p>
+        <p>logo</p>
       </header>
       <main>
         <Routes>
