@@ -12,8 +12,6 @@
     "allowJs": true,
     "checkJs": true,
     "removeComments": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,

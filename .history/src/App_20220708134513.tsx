@@ -3,7 +3,7 @@ import './App.css';
 
 const App: React.FC = () => (
   <div>
-    <p>Hello!!!</p>
+    <p>Hello</p>
   </div>
 );
 
