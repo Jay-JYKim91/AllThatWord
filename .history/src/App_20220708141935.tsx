@@ -3,7 +3,7 @@ import './App.css';
 
 const App: React.FC = () => (
   <div>
-    <p className="text-3xl font-bold underline p-10">Hello!!!</p>
+    <p className="text-3xl font-bold underline">Hello!!!</p>
   </div>
 );
 
