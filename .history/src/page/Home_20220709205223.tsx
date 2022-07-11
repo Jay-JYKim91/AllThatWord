@@ -1,0 +1,12 @@
+import SearchBar from 'component/SearchBar';
+import React from 'react';
+
+const Home: React.FC = () => {
+  return (
+    <div className="px-6 md:px-9 lg:px-12 py-4 md:py-6 lg:py-8">
+      <SearchBar />
+    </div>
+  );
+};
+
+export default Home;
