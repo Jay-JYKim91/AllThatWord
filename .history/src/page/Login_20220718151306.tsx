@@ -35,7 +35,7 @@ const Login: React.FC = () => {
             Sign in with Google
           </button>
         </li>
-        <li className="bg-primary-900 border-2 rounded border-white transition hover:bg-white hover:text-primary-900">
+        <li className="bg-primary-900 border-2 rounded border-white">
           <button
             type="button"
             onClick={() => handleGithubLogin()}

@@ -65,7 +65,7 @@ const Admin: React.FC<Props> = ({ words, setWords }) => {
       <div className="text-right mt-2 mb-4 max-w-2xl m-auto">
         <button
           type="button"
-          className="bg-primary-900 text-white py-1 px-2 border-2 rounded border-white transition hover:text-primary-900 hover:bg-white"
+          className="bg-primary-900 text-white py-1 px-2 border-2 rounded border-white transition hover:text-white hover:bg-primary-900"
           onClick={() => {
             return viewMode === 'list'
               ? setViewMode('flashcard')
