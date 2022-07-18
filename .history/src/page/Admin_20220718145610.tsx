@@ -91,7 +91,7 @@ const Admin: React.FC<Props> = ({ words, setWords }) => {
               onClick={() => handlePrevCard()}
               className="absolute left-0 inset-y-1/2"
             >
-              <AiOutlineCaretLeft className="text-primary-900 text-3xl mr-2 dark:text-white" />
+              <AiOutlineCaretLeft className="text-primary-900 text-3xl mr-2" />
             </button>
             {Object.keys(words).map((key, index) => {
               const word = words[key] as WordProp;
@@ -111,7 +111,7 @@ const Admin: React.FC<Props> = ({ words, setWords }) => {
               onClick={() => handleNextCard()}
               className="absolute right-0 inset-y-1/2"
             >
-              <AiOutlineCaretRight className="text-primary-900 text-3xl ml-2 dark:text-white" />
+              <AiOutlineCaretRight className="text-primary-900 text-3xl ml-2" />
             </button>
           </div>
         )}

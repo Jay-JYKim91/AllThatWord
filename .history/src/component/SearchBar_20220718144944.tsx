@@ -26,7 +26,7 @@ const SearchBar: React.FC<Prop> = ({ query, imageURL }) => {
       <input
         type="search"
         placeholder="Search here"
-        className="w-full p-2 caret-primary-900 text-xl text-primary-900 focus:outline-none"
+        className="w-full p-2 caret-primary-900 text-xl focus:outline-none"
         value={inputValue}
         onChange={(event) => setInputValue(event.target.value)}
       />

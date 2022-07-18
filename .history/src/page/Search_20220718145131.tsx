@@ -170,9 +170,7 @@ const Search: React.FC<Props> = ({ words, setWords }) => {
           )}
         </div>
         <div className="flex items-center mb-4">
-          <p className="text-neutral-600 dark:text-neutral-200">
-            {data.phonetic}
-          </p>
+          <p className="text-neutral-600">{data.phonetic}</p>
           <button
             type="button"
             className="ml-2"
@@ -188,7 +186,7 @@ const Search: React.FC<Props> = ({ words, setWords }) => {
         {data.meanings.map((meaning: Meaning, index: number) => {
           return (
             <div key={meaning.partOfSpeech}>
-              <p className="text-primary-900 font-bold text-lg mb-1 dark:text-neutral-200">
+              <p className="text-primary-900 font-bold text-lg mb-1">
                 {meaning.partOfSpeech[0].toUpperCase() +
                   meaning.partOfSpeech.substr(1)}
               </p>
@@ -200,7 +198,7 @@ const Search: React.FC<Props> = ({ words, setWords }) => {
                       <p>{definition.definition}</p>
                     </div>
                     {definition.example && (
-                      <p className="ml-3 text-neutral-500 dark:text-neutral-300">
+                      <p className="ml-3 text-neutral-500">
                         &#47;&#47; {definition.example}
                       </p>
                     )}
@@ -211,7 +209,7 @@ const Search: React.FC<Props> = ({ words, setWords }) => {
                 {meaning.synonyms.length !== 0 && (
                   <div>
                     <p className="font-heading_font text-lg mb-1">Synonyms</p>
-                    <div className="flex flex-wrap text-neutral-600 dark:text-primary-900">
+                    <div className="flex flex-wrap text-neutral-600">
                       {meaning.synonyms.map((synonym) => {
                         const url = `/search/${synonym}`;
                         // console.log(synonym);
@@ -221,6 +219,11 @@ const Search: React.FC<Props> = ({ words, setWords }) => {
                             key={synonym}
                           >
                             <Link to={url}>{synonym}</Link>
+                            {/* {synonym.split(' ').length === 1 ? (
+                              <Link to={url}>{synonym}</Link>
+                            ) : (
+                              synonym
+                            )} */}
                           </span>
                         );
                       })}
@@ -230,7 +233,7 @@ const Search: React.FC<Props> = ({ words, setWords }) => {
                 {meaning.antonyms.length !== 0 && (
                   <div>
                     <p className="font-heading_font mb-1">Antonyms</p>
-                    <div className="flex flex-wrap text-neutral-600 dark:text-primary-900">
+                    <div className="flex flex-wrap text-neutral-700">
                       {meaning.antonyms.map((antonym) => {
                         const url = `/search/${antonym}`;
                         return (
@@ -253,7 +256,7 @@ const Search: React.FC<Props> = ({ words, setWords }) => {
             </div>
           );
         })}
-        <div className="text-right text-neutral-500 dark:text-neutral-200">
+        <div className="text-right text-neutral-500 ">
           <span>License:&nbsp;</span>
           <a href={data.license.url} target="_blank" rel="noreferrer">
             {data.license.name}

@@ -23,7 +23,7 @@ const Login: React.FC = () => {
 
   return (
     <div className="px-6 md:px-9 lg:px-12 py-12 md:py-18 lg:py-24 text-center">
-      <p className="font-heading_font text-4xl dark:text-white">LOGIN</p>
+      <p className="font-heading_font text-4xl">LOGIN</p>
       <ul className="w-fit m-auto py-4 text-xl text-white">
         <li className="mb-2 border-2 bg-primary-900 rounded dark:border-white">
           <button

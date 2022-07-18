@@ -114,7 +114,7 @@ const App: React.FC = () => {
             </div>
           </div>
         </header>
-        <main className="flex-1 dark:bg-primary-900">
+        <main className="flex-1">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route

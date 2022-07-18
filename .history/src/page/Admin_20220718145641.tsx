@@ -111,7 +111,7 @@ const Admin: React.FC<Props> = ({ words, setWords }) => {
               onClick={() => handleNextCard()}
               className="absolute right-0 inset-y-1/2"
             >
-              <AiOutlineCaretRight className="text-primary-900 text-3xl ml-2 dark:text-white" />
+              <AiOutlineCaretRight className="text-primary-900 text-3xl ml-2" />
             </button>
           </div>
         )}

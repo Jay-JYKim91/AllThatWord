@@ -6,7 +6,6 @@ import { NavigateFunction, Route, Routes, useNavigate } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import React, { useContext, useEffect, useState } from 'react';
 import { IoLogIn } from 'react-icons/io5';
-import { BsSunFill, BsMoonFill } from 'react-icons/bs';
 import * as repo from 'services/repository';
 import { AuthContext } from './context/authContext';
 
@@ -23,20 +22,16 @@ const App: React.FC = () => {
   const [theme, setTheme] = useState('light');
 
   useEffect(() => {
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      setTheme('dark');
-    } else {
-      setTheme('light');
-    }
+    window.matchMedia('(prefers-color-scheme: dark)').matches
+      ? setTheme('dark')
+      : setTheme('light');
   }, []);
 
   useEffect(() => {
-    if (theme === 'dark') {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  }, [theme]);
+    theme === 'dark'
+      ? document.documentElement.classList.add('dark')
+      : document.documentElement.classList.remove('dark');
+  });
 
   // console.log(userInfo);
   useEffect(() => {
@@ -79,42 +74,29 @@ const App: React.FC = () => {
                 alt="logo"
               />
             </button>
-            <div className="flex">
+            {!userInfo && (
               <button
                 type="button"
-                className="mr-2"
-                onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-              >
-                {theme === 'dark' ? (
-                  <BsSunFill className="bg-primary-900 text-white text-2xl" />
-                ) : (
-                  <BsMoonFill className="bg-primary-900 text-white text-2xl" />
-                )}
-              </button>
-              {!userInfo && (
-                <button
-                  type="button"
-                  onClick={navigateLogin}
-                  className="flex self-center border-2 border-white py-1 px-2 bg-primary-900 text-white rounded 
+                onClick={navigateLogin}
+                className="flex self-center border-2 border-white py-1 px-2 bg-primary-900 text-white rounded 
                           transition hover:bg-white hover:text-primary-900 hover:ease-linear dark:border-white"
-                >
-                  <IoLogIn className="mr-1 text-2xl" />
-                  <p className="font-heading_font">LOGIN</p>
-                </button>
-              )}
-              {userInfo && (
-                <button type="button" onClick={navigateAdmin}>
-                  <img
-                    className="w-[45px] h-[45px] border-2 rounded-full bg-white"
-                    src="./avatar.png"
-                    alt="avatar"
-                  />
-                </button>
-              )}
-            </div>
+              >
+                <IoLogIn className="mr-1 text-2xl" />
+                <p className="font-heading_font">LOGIN</p>
+              </button>
+            )}
+            {userInfo && (
+              <button type="button" onClick={navigateAdmin}>
+                <img
+                  className="w-[45px] h-[45px] border-2 rounded-full bg-white"
+                  src="./avatar.png"
+                  alt="avatar"
+                />
+              </button>
+            )}
           </div>
         </header>
-        <main className="flex-1 dark:bg-primary-900">
+        <main className="flex-1">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route

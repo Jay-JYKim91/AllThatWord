@@ -6,7 +6,6 @@ import { NavigateFunction, Route, Routes, useNavigate } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import React, { useContext, useEffect, useState } from 'react';
 import { IoLogIn } from 'react-icons/io5';
-import { BsSunFill, BsMoonFill } from 'react-icons/bs';
 import * as repo from 'services/repository';
 import { AuthContext } from './context/authContext';
 
@@ -69,7 +68,7 @@ const App: React.FC = () => {
           <div className="flex justify-between max-w-7xl m-auto">
             <button type="button" onClick={navigateHome}>
               <img
-                className="w-[50px] h-[50px] md:hidden"
+                className="w-[50px] h-[50px] md:hidden dark:bg-red-500"
                 src="./logo_small.png"
                 alt="logo"
               />
@@ -79,17 +78,9 @@ const App: React.FC = () => {
                 alt="logo"
               />
             </button>
-            <div className="flex">
-              <button
-                type="button"
-                className="mr-2"
-                onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-              >
-                {theme === 'dark' ? (
-                  <BsSunFill className="bg-primary-900 text-white text-2xl" />
-                ) : (
-                  <BsMoonFill className="bg-primary-900 text-white text-2xl" />
-                )}
+            <div>
+              <button type="button" className="bg-white text-black">
+                {theme === 'dark' ? 'light' : 'dark'}
               </button>
               {!userInfo && (
                 <button
@@ -114,7 +105,7 @@ const App: React.FC = () => {
             </div>
           </div>
         </header>
-        <main className="flex-1 dark:bg-primary-900">
+        <main className="flex-1">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route

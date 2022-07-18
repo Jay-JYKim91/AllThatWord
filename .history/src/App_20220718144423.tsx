@@ -79,16 +79,16 @@ const App: React.FC = () => {
                 alt="logo"
               />
             </button>
-            <div className="flex">
+            <div>
               <button
                 type="button"
-                className="mr-2"
+                className="bg-white text-black"
                 onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
               >
                 {theme === 'dark' ? (
-                  <BsSunFill className="bg-primary-900 text-white text-2xl" />
+                  <BsSunFill className="bg-primary-900" />
                 ) : (
-                  <BsMoonFill className="bg-primary-900 text-white text-2xl" />
+                  <BsMoonFill />
                 )}
               </button>
               {!userInfo && (
@@ -114,7 +114,7 @@ const App: React.FC = () => {
             </div>
           </div>
         </header>
-        <main className="flex-1 dark:bg-primary-900">
+        <main className="flex-1">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route

@@ -211,13 +211,13 @@ const Search: React.FC<Props> = ({ words, setWords }) => {
                 {meaning.synonyms.length !== 0 && (
                   <div>
                     <p className="font-heading_font text-lg mb-1">Synonyms</p>
-                    <div className="flex flex-wrap text-neutral-600 dark:text-primary-900">
+                    <div className="flex flex-wrap text-neutral-600">
                       {meaning.synonyms.map((synonym) => {
                         const url = `/search/${synonym}`;
                         // console.log(synonym);
                         return (
                           <span
-                            className="mr-1 mb-1 px-2 bg-neutral-200"
+                            className="mr-1 mb-1 px-2 bg-neutral-200 dark:text-primary-900"
                             key={synonym}
                           >
                             <Link to={url}>{synonym}</Link>
@@ -230,7 +230,7 @@ const Search: React.FC<Props> = ({ words, setWords }) => {
                 {meaning.antonyms.length !== 0 && (
                   <div>
                     <p className="font-heading_font mb-1">Antonyms</p>
-                    <div className="flex flex-wrap text-neutral-600 dark:text-primary-900">
+                    <div className="flex flex-wrap text-neutral-700">
                       {meaning.antonyms.map((antonym) => {
                         const url = `/search/${antonym}`;
                         return (

@@ -20,7 +20,7 @@ const App: React.FC = () => {
   const navigate: NavigateFunction = useNavigate();
   const userInfo = useContext(AuthContext);
   const [words, setWords] = useState<LooseObj>({});
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState('dark');
 
   useEffect(() => {
     if (window.matchMedia('(prefers-color-scheme: dark)').matches) {

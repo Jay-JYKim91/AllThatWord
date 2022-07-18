@@ -6,7 +6,6 @@ import { NavigateFunction, Route, Routes, useNavigate } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import React, { useContext, useEffect, useState } from 'react';
 import { IoLogIn } from 'react-icons/io5';
-import { BsSunFill, BsMoonFill } from 'react-icons/bs';
 import * as repo from 'services/repository';
 import { AuthContext } from './context/authContext';
 
@@ -62,10 +61,14 @@ const App: React.FC = () => {
     navigate('/admin');
   };
 
+  const handleThemeSwitch = () => {
+    setTheme(theme === 'dark' ? 'light' : 'dark');
+  };
+
   return (
     <QueryClientProvider client={queryClient}>
       <div className="app font-body_font">
-        <header className="px-6 md:px-9 lg:px-12 py-4 md:py-6 lg:py-8 shadow-md bg-primary-900">
+        <header className="px-6 md:px-9 lg:px-12 py-4 md:py-6 lg:py-8 shadow-md bg-primary-900 dark:bg-white">
           <div className="flex justify-between max-w-7xl m-auto">
             <button type="button" onClick={navigateHome}>
               <img
@@ -79,17 +82,13 @@ const App: React.FC = () => {
                 alt="logo"
               />
             </button>
-            <div className="flex">
+            <div>
               <button
                 type="button"
-                className="mr-2"
-                onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+                className="bg-white text-black"
+                onClick={handleThemeSwitch}
               >
-                {theme === 'dark' ? (
-                  <BsSunFill className="bg-primary-900 text-white text-2xl" />
-                ) : (
-                  <BsMoonFill className="bg-primary-900 text-white text-2xl" />
-                )}
+                {theme === 'dark' ? 'light' : 'dark'}
               </button>
               {!userInfo && (
                 <button
@@ -114,7 +113,7 @@ const App: React.FC = () => {
             </div>
           </div>
         </header>
-        <main className="flex-1 dark:bg-primary-900">
+        <main className="flex-1">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route

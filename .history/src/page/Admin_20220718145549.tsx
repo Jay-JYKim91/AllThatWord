@@ -65,7 +65,7 @@ const Admin: React.FC<Props> = ({ words, setWords }) => {
       <div className="text-right mt-2 mb-4 max-w-2xl m-auto">
         <button
           type="button"
-          className="bg-primary-900 text-white py-1 px-2 border-2 dark:border-white"
+          className="bg-primary-900 text-white py-1 px-2"
           onClick={() => {
             return viewMode === 'list'
               ? setViewMode('flashcard')
@@ -91,7 +91,7 @@ const Admin: React.FC<Props> = ({ words, setWords }) => {
               onClick={() => handlePrevCard()}
               className="absolute left-0 inset-y-1/2"
             >
-              <AiOutlineCaretLeft className="text-primary-900 text-3xl mr-2 dark:text-white" />
+              <AiOutlineCaretLeft className="text-primary-900 text-3xl mr-2" />
             </button>
             {Object.keys(words).map((key, index) => {
               const word = words[key] as WordProp;
@@ -111,7 +111,7 @@ const Admin: React.FC<Props> = ({ words, setWords }) => {
               onClick={() => handleNextCard()}
               className="absolute right-0 inset-y-1/2"
             >
-              <AiOutlineCaretRight className="text-primary-900 text-3xl ml-2 dark:text-white" />
+              <AiOutlineCaretRight className="text-primary-900 text-3xl ml-2" />
             </button>
           </div>
         )}
