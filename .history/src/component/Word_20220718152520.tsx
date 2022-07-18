@@ -26,7 +26,7 @@ const Word: React.FC<Prop> = ({ word, setWords }) => {
 
   return (
     <div className="py-2 px-3 bg-neutral-200 mb-2 rounded" key={word.id}>
-      <div className="mb-4">
+      <div className="mb-2">
         <div className="flex items-center justify-between">
           <p className="font-heading_font text-2xl">{word.id}</p>
           <button type="button" onClick={() => handleDelete(word.id)}>

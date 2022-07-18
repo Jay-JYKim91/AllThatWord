@@ -26,28 +26,26 @@ const Word: React.FC<Prop> = ({ word, setWords }) => {
 
   return (
     <div className="py-2 px-3 bg-neutral-200 mb-2 rounded" key={word.id}>
-      <div className="mb-4">
-        <div className="flex items-center justify-between">
-          <p className="font-heading_font text-2xl">{word.id}</p>
-          <button type="button" onClick={() => handleDelete(word.id)}>
-            <RiDeleteBin5Fill className="text-2xl text-primary-900" />
+      <div className="flex items-center justify-between">
+        <p className="font-heading_font text-2xl">{word.id}</p>
+        <button type="button" onClick={() => handleDelete(word.id)}>
+          <RiDeleteBin5Fill className="text-2xl text-primary-900" />
+        </button>
+      </div>
+      {word.phonetic && word.pronunciation && (
+        <div className="flex items-center mb-4">
+          <p className="text-neutral-600 text-md">{word.phonetic}</p>
+          <button
+            type="button"
+            className="ml-2"
+            onClick={() => {
+              new Audio(word.pronunciation).play();
+            }}
+          >
+            <GiSpeaker className="text-2xl" />
           </button>
         </div>
-        {word.phonetic && word.pronunciation && (
-          <div className="flex items-center mb-4">
-            <p className="text-neutral-600 text-md">{word.phonetic}</p>
-            <button
-              type="button"
-              className="ml-2"
-              onClick={() => {
-                new Audio(word.pronunciation).play();
-              }}
-            >
-              <GiSpeaker className="text-2xl" />
-            </button>
-          </div>
-        )}
-      </div>
+      )}
 
       {word.meanings.map((meaning, index) => {
         const marginBottom = index === word.meanings.length - 1 ? '' : 'mb-1';

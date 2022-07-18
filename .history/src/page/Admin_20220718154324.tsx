@@ -53,7 +53,7 @@ const Admin: React.FC<Props> = ({ words, setWords }) => {
         <button
           type="button"
           onClick={() => handleLogout()}
-          className="flex items-center bg-primary-900 border-2 border-primary-900 text-white px-2 py-1 rounded transition dark:border-white hover:bg-white hover:text-primary-900"
+          className="flex items-center bg-primary-900 border-2 border-white text-white px-2 py-1 rounded transition hover:dark:bg-white hover:dark:text-primary-900"
         >
           <IoLogOut className="mr-1 text-2xl" />
           Logout
@@ -65,7 +65,7 @@ const Admin: React.FC<Props> = ({ words, setWords }) => {
       <div className="text-right mt-2 mb-4 max-w-2xl m-auto">
         <button
           type="button"
-          className="bg-primary-900 text-white py-1 px-2 border-2 rounded border-primary-900 transition dark:border-white hover:text-primary-900 hover:bg-white"
+          className="bg-primary-900 text-white py-1 px-2 border-2 rounded border-white transition hover:text-primary-900 hover:bg-white"
           onClick={() => {
             return viewMode === 'list'
               ? setViewMode('flashcard')

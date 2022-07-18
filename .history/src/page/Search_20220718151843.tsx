@@ -175,18 +175,17 @@ const Search: React.FC<Props> = ({ words, setWords }) => {
               {data.phonetic}
             </p>
           )}
-          {data.phonetics.length !== 0 && (
-            <button
-              type="button"
-              className="ml-2"
-              onClick={() => {
-                const src = findAudioSrc(data.phonetics);
-                handlePlaySound(src);
-              }}
-            >
-              <GiSpeaker className="text-3xl" />
-            </button>
-          )}
+
+          <button
+            type="button"
+            className="ml-2"
+            onClick={() => {
+              const src = findAudioSrc(data.phonetics);
+              handlePlaySound(src);
+            }}
+          >
+            <GiSpeaker className="text-3xl" />
+          </button>
         </div>
 
         {data.meanings.map((meaning: Meaning, index: number) => {
