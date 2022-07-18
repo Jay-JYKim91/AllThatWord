@@ -34,7 +34,7 @@ const SearchBar: React.FC<Prop> = ({ query, imageURL }) => {
         type="submit"
         className="border border-primary-900 bg-primary-900 p-2"
       >
-        <img src={imageURL} alt="search" className="w-8" />
+        <img src="./search.png" alt="search" className="w-8" />
       </button>
     </form>
   );

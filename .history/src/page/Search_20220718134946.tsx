@@ -75,7 +75,7 @@ const Search: React.FC<Props> = ({ words, setWords }) => {
   if (isLoading) {
     return (
       <div className="px-6 md:px-9 lg:px-12 py-4 md:py-6 lg:py-8">
-        <SearchBar query={query} imageURL="../search.png" />
+        <SearchBar query={query} imageURL="./search.png" />
         <div className="spinner-wrapper">
           <div className="spinner">
             <div className="sk-folding-cube top-[45%] left-[45%] lg:top-[25%]">
@@ -93,7 +93,7 @@ const Search: React.FC<Props> = ({ words, setWords }) => {
   if (isError) {
     return (
       <div className="px-6 md:px-9 lg:px-12 py-4 md:py-6 lg:py-8">
-        <SearchBar query={query} imageURL="../search.png" />
+        <SearchBar query={query} imageURL="./search.png" />
         <div className="py-20 font-heading_font text-center">
           <MdOutlineError className="text-6xl text-primary-900 m-auto" />
           <p className="mt-4 text-xl font-body1_font">
