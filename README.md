@@ -71,9 +71,31 @@ TBD
 
 ## Usage
 
-### Responsive Design
+### Search words
 
-TBD
+<img src="./docs/search_word_function.gif" alt="search" />
+
+### LogIn to save words
+
+<img src="./docs/login_function.gif" alt="login" />
+
+### Save words
+
+<img src="./docs/save_word_function.gif" alt="save_word" />
+
+### Check my words using both viewmodes
+
+#### List mode
+
+<img src="./docs/view_saved_words.gif" alt="admin" />
+
+#### Flashcard mode
+
+<img src="./docs/flashcard_function.gif" alt="admin" />
+
+### Change theme_Dark mode
+
+<img src="./docs/dark_mode.gif" alt="dark_mode" />
 
 ---
 
