@@ -10,7 +10,6 @@ import {
 import { MdOutlineError } from 'react-icons/md';
 import { GiSpeaker } from 'react-icons/gi';
 import { HiDocumentAdd, HiDocumentRemove } from 'react-icons/hi';
-// import { BsPlusLg } from 'react-icons/bs';
 import { LooseObj } from 'App';
 import * as repo from 'services/repository';
 import searchByQuery from '../services/dictionaryAPI';
@@ -40,8 +39,6 @@ type Phonetic = {
 type Props = {
   words: LooseObj;
   setWords: React.Dispatch<React.SetStateAction<LooseObj>>;
-  // folders: LooseObj;
-  // setFolders: React.Dispatch<React.SetStateAction<LooseObj>>;
 };
 
 type Data = {
@@ -55,8 +52,8 @@ type Data = {
 
 export type WordProp = {
   id: string;
-  phonetic?: string;
-  pronunciation?: string;
+  phonetic: string;
+  pronunciation: string;
   meanings: Meaning[];
 };
 
@@ -127,15 +124,15 @@ const Search: React.FC<Props> = ({ words, setWords }) => {
       alert('You need to login to save this word.');
       navigate('/login');
     } else {
-      // const modal = document.getElementById('modal');
-      // modal!.style.display = 'block';
       const src = findAudioSrc(data.phonetics);
+
       const word: WordProp = {
         id: data.word,
         phonetic: data.phonetic,
         pronunciation: src,
         meanings: data.meanings,
       };
+
       const updated: LooseObj = { ...words };
       updated[word.id] = word;
       setWords(updated);
@@ -156,12 +153,6 @@ const Search: React.FC<Props> = ({ words, setWords }) => {
     new Audio(src).play();
   };
 
-  // const handleAddFolder = () => {
-  //   setFolders({
-  //     id: Date.now(),
-  //   });
-  // };
-
   const arr: string[] = [];
 
   return (
@@ -175,24 +166,9 @@ const Search: React.FC<Props> = ({ words, setWords }) => {
               <HiDocumentRemove className="text-2xl md:text-4xl text-primary-900 dark:text-white" />
             </button>
           ) : (
-            <div className="relative">
-              <button type="button" onClick={() => handleSave(data)}>
-                <HiDocumentAdd className="text-2xl md:text-4xl text-primary-900 dark:text-white" />
-              </button>
-              {/* <div
-                className="bg-yellow-400 w-40 hidden absolute right-0 p-4"
-                id="modal"
-              >
-                <button
-                  type="button"
-                  className="flex"
-                  onClick={handleAddFolder}
-                >
-                  <BsPlusLg className="mr-2" />
-                  Add new folder
-                </button>
-              </div> */}
-            </div>
+            <button type="button" onClick={() => handleSave(data)}>
+              <HiDocumentAdd className="text-2xl md:text-4xl text-primary-900 dark:text-white" />
+            </button>
           )}
         </div>
         <div className="flex items-center mb-4">
@@ -216,78 +192,76 @@ const Search: React.FC<Props> = ({ words, setWords }) => {
         </div>
 
         {data.meanings.map((meaning: Meaning, index: number) => {
-          if (index > 0) {
-            arr.push(data.meanings[index - 1].partOfSpeech);
+          arr.push(meaning.partOfSpeech);
+          if (arr.includes(meaning.partOfSpeech)) {
+            return;
           }
 
           return (
-            !arr.includes(meaning.partOfSpeech) && (
-              <div key={meaning.partOfSpeech}>
-                {index !== 0 && (
-                  <hr className="border-primary-700 opacity-40 my-4" />
-                )}
-                <p className="text-primary-900 font-bold text-lg mb-1 dark:text-neutral-200">
-                  {meaning.partOfSpeech[0].toUpperCase() +
-                    meaning.partOfSpeech.substr(1)}
-                </p>
-                {meaning.definitions.map(
-                  (definition: Definition, i: number) => {
-                    return (
-                      <div key={definition.definition} className="mb-2">
-                        <div className="flex">
-                          <p className="mr-2">{i + 1}.</p>
-                          <p>{definition.definition}</p>
-                        </div>
-                        {definition.example && (
-                          <p className="ml-3 text-neutral-500 dark:text-neutral-300">
-                            &#47;&#47; {definition.example}
-                          </p>
-                        )}
-                      </div>
-                    );
-                  }
-                )}
-                <div>
-                  {meaning.synonyms.length !== 0 && (
-                    <div>
-                      <p className="font-heading_font text-lg mb-1">Synonyms</p>
-                      <div className="flex flex-wrap text-neutral-600 dark:text-primary-900">
-                        {meaning.synonyms.map((synonym) => {
-                          const url = `/search/${synonym}`;
-                          // console.log(synonym);
-                          return (
-                            <span
-                              className="mr-1 mb-1 px-2 bg-neutral-200"
-                              key={synonym}
-                            >
-                              <Link to={url}>{synonym}</Link>
-                            </span>
-                          );
-                        })}
-                      </div>
+            <div key={meaning.partOfSpeech}>
+              <p className="text-primary-900 font-bold text-lg mb-1 dark:text-neutral-200">
+                {meaning.partOfSpeech[0].toUpperCase() +
+                  meaning.partOfSpeech.substr(1)}
+              </p>
+              {meaning.definitions.map((definition: Definition, i: number) => {
+                return (
+                  <div key={definition.definition} className="mb-2">
+                    <div className="flex">
+                      <p className="mr-2">{i + 1}.</p>
+                      <p>{definition.definition}</p>
                     </div>
-                  )}
-                  {meaning.antonyms.length !== 0 && (
-                    <div>
-                      <p className="font-heading_font mb-1">Antonyms</p>
-                      <div className="flex flex-wrap text-neutral-600 dark:text-primary-900">
-                        {meaning.antonyms.map((antonym) => {
-                          const url = `/search/${antonym}`;
-                          return (
-                            <span
-                              className="mr-1 mb-1 px-2 bg-neutral-200"
-                              key={antonym}
-                            >
-                              <Link to={url}>{antonym}</Link>
-                            </span>
-                          );
-                        })}
-                      </div>
+                    {definition.example && (
+                      <p className="ml-3 text-neutral-500 dark:text-neutral-300">
+                        &#47;&#47; {definition.example}
+                      </p>
+                    )}
+                  </div>
+                );
+              })}
+              <div>
+                {meaning.synonyms.length !== 0 && (
+                  <div>
+                    <p className="font-heading_font text-lg mb-1">Synonyms</p>
+                    <div className="flex flex-wrap text-neutral-600 dark:text-primary-900">
+                      {meaning.synonyms.map((synonym) => {
+                        const url = `/search/${synonym}`;
+                        // console.log(synonym);
+                        return (
+                          <span
+                            className="mr-1 mb-1 px-2 bg-neutral-200"
+                            key={synonym}
+                          >
+                            <Link to={url}>{synonym}</Link>
+                          </span>
+                        );
+                      })}
                     </div>
-                  )}
-                </div>
+                  </div>
+                )}
+                {meaning.antonyms.length !== 0 && (
+                  <div>
+                    <p className="font-heading_font mb-1">Antonyms</p>
+                    <div className="flex flex-wrap text-neutral-600 dark:text-primary-900">
+                      {meaning.antonyms.map((antonym) => {
+                        const url = `/search/${antonym}`;
+                        return (
+                          <span
+                            className="mr-1 mb-1 px-2 bg-neutral-200"
+                            key={antonym}
+                          >
+                            <Link to={url}>{antonym}</Link>
+                          </span>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
               </div>
-            )
+
+              {data.meanings.length - 1 !== index && (
+                <hr className="border-primary-700 opacity-40 my-4" />
+              )}
+            </div>
           );
         })}
         <div className="text-right text-neutral-500 dark:text-neutral-200">

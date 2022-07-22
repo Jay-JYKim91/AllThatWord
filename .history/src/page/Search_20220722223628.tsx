@@ -10,7 +10,7 @@ import {
 import { MdOutlineError } from 'react-icons/md';
 import { GiSpeaker } from 'react-icons/gi';
 import { HiDocumentAdd, HiDocumentRemove } from 'react-icons/hi';
-// import { BsPlusLg } from 'react-icons/bs';
+import { BsPlusLg } from 'react-icons/bs';
 import { LooseObj } from 'App';
 import * as repo from 'services/repository';
 import searchByQuery from '../services/dictionaryAPI';
@@ -40,8 +40,8 @@ type Phonetic = {
 type Props = {
   words: LooseObj;
   setWords: React.Dispatch<React.SetStateAction<LooseObj>>;
-  // folders: LooseObj;
-  // setFolders: React.Dispatch<React.SetStateAction<LooseObj>>;
+  folders: LooseObj;
+  setFolders: React.Dispatch<React.SetStateAction<LooseObj>>;
 };
 
 type Data = {
@@ -60,7 +60,7 @@ export type WordProp = {
   meanings: Meaning[];
 };
 
-const Search: React.FC<Props> = ({ words, setWords }) => {
+const Search: React.FC<Props> = ({ words, setWords, folders, setFolders }) => {
   const { query } = useParams();
   const userInfo = useContext(AuthContext);
   const navigate: NavigateFunction = useNavigate();
@@ -127,19 +127,19 @@ const Search: React.FC<Props> = ({ words, setWords }) => {
       alert('You need to login to save this word.');
       navigate('/login');
     } else {
-      // const modal = document.getElementById('modal');
-      // modal!.style.display = 'block';
-      const src = findAudioSrc(data.phonetics);
-      const word: WordProp = {
-        id: data.word,
-        phonetic: data.phonetic,
-        pronunciation: src,
-        meanings: data.meanings,
-      };
-      const updated: LooseObj = { ...words };
-      updated[word.id] = word;
-      setWords(updated);
-      repo.saveWord(userInfo.uid, word);
+      const modal = document.getElementById('modal');
+      modal!.style.display = 'block';
+      // const src = findAudioSrc(data.phonetics);
+      // const word: WordProp = {
+      //   id: data.word,
+      //   phonetic: data.phonetic,
+      //   pronunciation: src,
+      //   meanings: data.meanings,
+      // };
+      // const updated: LooseObj = { ...words };
+      // updated[word.id] = word;
+      // setWords(updated);
+      // repo.saveWord(userInfo.uid, word);
     }
   };
 
@@ -156,11 +156,13 @@ const Search: React.FC<Props> = ({ words, setWords }) => {
     new Audio(src).play();
   };
 
-  // const handleAddFolder = () => {
-  //   setFolders({
-  //     id: Date.now(),
-  //   });
-  // };
+  const handleAddFolder = () => {
+    if (!userInfo) {
+      alert('You need to login to save this word.');
+      navigate('/login');
+    } else {
+    }
+  };
 
   const arr: string[] = [];
 
@@ -179,7 +181,7 @@ const Search: React.FC<Props> = ({ words, setWords }) => {
               <button type="button" onClick={() => handleSave(data)}>
                 <HiDocumentAdd className="text-2xl md:text-4xl text-primary-900 dark:text-white" />
               </button>
-              {/* <div
+              <div
                 className="bg-yellow-400 w-40 hidden absolute right-0 p-4"
                 id="modal"
               >
@@ -191,7 +193,7 @@ const Search: React.FC<Props> = ({ words, setWords }) => {
                   <BsPlusLg className="mr-2" />
                   Add new folder
                 </button>
-              </div> */}
+              </div>
             </div>
           )}
         </div>

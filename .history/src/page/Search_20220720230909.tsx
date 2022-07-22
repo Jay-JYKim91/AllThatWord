@@ -10,7 +10,6 @@ import {
 import { MdOutlineError } from 'react-icons/md';
 import { GiSpeaker } from 'react-icons/gi';
 import { HiDocumentAdd, HiDocumentRemove } from 'react-icons/hi';
-// import { BsPlusLg } from 'react-icons/bs';
 import { LooseObj } from 'App';
 import * as repo from 'services/repository';
 import searchByQuery from '../services/dictionaryAPI';
@@ -40,8 +39,6 @@ type Phonetic = {
 type Props = {
   words: LooseObj;
   setWords: React.Dispatch<React.SetStateAction<LooseObj>>;
-  // folders: LooseObj;
-  // setFolders: React.Dispatch<React.SetStateAction<LooseObj>>;
 };
 
 type Data = {
@@ -55,8 +52,8 @@ type Data = {
 
 export type WordProp = {
   id: string;
-  phonetic?: string;
-  pronunciation?: string;
+  phonetic: string;
+  pronunciation: string;
   meanings: Meaning[];
 };
 
@@ -127,15 +124,46 @@ const Search: React.FC<Props> = ({ words, setWords }) => {
       alert('You need to login to save this word.');
       navigate('/login');
     } else {
-      // const modal = document.getElementById('modal');
-      // modal!.style.display = 'block';
       const src = findAudioSrc(data.phonetics);
+      const filteredMeanings = [];
+      // let i = 0;
+      // if ()
+      // while (i < data.meanings.length) {
+      //   filteredMeanings
+      // }
+      for (let i = 0; i < data.meanings.length; i++) {
+        if (i === 0) {
+          filteredMeanings.push(data.meanings[i]);
+        } else {
+          for (let j = 0; j < filteredMeanings.length; j++) {
+            console.log(`filtered: ${filteredMeanings[j].partOfSpeech}
+            data: ${data.meanings[i].partOfSpeech}
+            res: ${
+              filteredMeanings[j].partOfSpeech !== data.meanings[i].partOfSpeech
+            }`);
+            //   // console.log('data', );
+            //   // console.log(
+            //   //   filteredMeanings[j].partOfSpeech !== data.meanings[i].partOfSpeech
+            //   // );
+            //   if (
+            //     filteredMeanings[j].partOfSpeech !== data.meanings[i].partOfSpeech
+            //   ) {
+            //     console.log('here!');
+            //     filteredMeanings.push(data.meanings[i]);
+            //   }
+          }
+        }
+      }
+
+      console.log(filteredMeanings);
+
       const word: WordProp = {
         id: data.word,
         phonetic: data.phonetic,
         pronunciation: src,
         meanings: data.meanings,
       };
+
       const updated: LooseObj = { ...words };
       updated[word.id] = word;
       setWords(updated);
@@ -156,12 +184,6 @@ const Search: React.FC<Props> = ({ words, setWords }) => {
     new Audio(src).play();
   };
 
-  // const handleAddFolder = () => {
-  //   setFolders({
-  //     id: Date.now(),
-  //   });
-  // };
-
   const arr: string[] = [];
 
   return (
@@ -175,24 +197,9 @@ const Search: React.FC<Props> = ({ words, setWords }) => {
               <HiDocumentRemove className="text-2xl md:text-4xl text-primary-900 dark:text-white" />
             </button>
           ) : (
-            <div className="relative">
-              <button type="button" onClick={() => handleSave(data)}>
-                <HiDocumentAdd className="text-2xl md:text-4xl text-primary-900 dark:text-white" />
-              </button>
-              {/* <div
-                className="bg-yellow-400 w-40 hidden absolute right-0 p-4"
-                id="modal"
-              >
-                <button
-                  type="button"
-                  className="flex"
-                  onClick={handleAddFolder}
-                >
-                  <BsPlusLg className="mr-2" />
-                  Add new folder
-                </button>
-              </div> */}
-            </div>
+            <button type="button" onClick={() => handleSave(data)}>
+              <HiDocumentAdd className="text-2xl md:text-4xl text-primary-900 dark:text-white" />
+            </button>
           )}
         </div>
         <div className="flex items-center mb-4">

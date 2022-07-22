@@ -16,24 +16,12 @@ export interface LooseObj {
   [key: string]: object;
 }
 
-// export type foldersObj = {
-//   [key: string]: folderProps;
-// }
-
-// export type folderProps = {
-//   id: number;
-//   name: string;
-//   words: {};
-// };
-
 const App: React.FC = () => {
   const navigate: NavigateFunction = useNavigate();
   const userInfo = useContext(AuthContext);
   const [words, setWords] = useState<LooseObj>({});
-  // const [folders, setFolders] = useState<foldersObj>({});
   const [theme, setTheme] = useState('light');
 
-  console.log(userInfo);
   useEffect(() => {
     if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
       setTheme('dark');
@@ -131,26 +119,12 @@ const App: React.FC = () => {
             <Route path="/" element={<Home />} />
             <Route
               path="/search/:query"
-              element={
-                <Search
-                  words={words}
-                  setWords={setWords}
-                  // folders={folders}
-                  // setFolders={setFolders}
-                />
-              }
+              element={<Search words={words} setWords={setWords} />}
             />
             <Route path="/login" element={<Login />} />
             <Route
               path="/admin"
-              element={
-                <Admin
-                  words={words}
-                  setWords={setWords}
-                  // folders={folders}
-                  // setFolders={setFolders}
-                />
-              }
+              element={<Admin words={words} setWords={setWords} />}
             />
           </Routes>
         </main>

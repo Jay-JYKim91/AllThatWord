@@ -10,7 +10,6 @@ import {
 import { MdOutlineError } from 'react-icons/md';
 import { GiSpeaker } from 'react-icons/gi';
 import { HiDocumentAdd, HiDocumentRemove } from 'react-icons/hi';
-// import { BsPlusLg } from 'react-icons/bs';
 import { LooseObj } from 'App';
 import * as repo from 'services/repository';
 import searchByQuery from '../services/dictionaryAPI';
@@ -40,8 +39,6 @@ type Phonetic = {
 type Props = {
   words: LooseObj;
   setWords: React.Dispatch<React.SetStateAction<LooseObj>>;
-  // folders: LooseObj;
-  // setFolders: React.Dispatch<React.SetStateAction<LooseObj>>;
 };
 
 type Data = {
@@ -55,8 +52,8 @@ type Data = {
 
 export type WordProp = {
   id: string;
-  phonetic?: string;
-  pronunciation?: string;
+  phonetic: string;
+  pronunciation: string;
   meanings: Meaning[];
 };
 
@@ -127,15 +124,15 @@ const Search: React.FC<Props> = ({ words, setWords }) => {
       alert('You need to login to save this word.');
       navigate('/login');
     } else {
-      // const modal = document.getElementById('modal');
-      // modal!.style.display = 'block';
       const src = findAudioSrc(data.phonetics);
+
       const word: WordProp = {
         id: data.word,
         phonetic: data.phonetic,
         pronunciation: src,
         meanings: data.meanings,
       };
+
       const updated: LooseObj = { ...words };
       updated[word.id] = word;
       setWords(updated);
@@ -156,12 +153,6 @@ const Search: React.FC<Props> = ({ words, setWords }) => {
     new Audio(src).play();
   };
 
-  // const handleAddFolder = () => {
-  //   setFolders({
-  //     id: Date.now(),
-  //   });
-  // };
-
   const arr: string[] = [];
 
   return (
@@ -175,24 +166,9 @@ const Search: React.FC<Props> = ({ words, setWords }) => {
               <HiDocumentRemove className="text-2xl md:text-4xl text-primary-900 dark:text-white" />
             </button>
           ) : (
-            <div className="relative">
-              <button type="button" onClick={() => handleSave(data)}>
-                <HiDocumentAdd className="text-2xl md:text-4xl text-primary-900 dark:text-white" />
-              </button>
-              {/* <div
-                className="bg-yellow-400 w-40 hidden absolute right-0 p-4"
-                id="modal"
-              >
-                <button
-                  type="button"
-                  className="flex"
-                  onClick={handleAddFolder}
-                >
-                  <BsPlusLg className="mr-2" />
-                  Add new folder
-                </button>
-              </div> */}
-            </div>
+            <button type="button" onClick={() => handleSave(data)}>
+              <HiDocumentAdd className="text-2xl md:text-4xl text-primary-900 dark:text-white" />
+            </button>
           )}
         </div>
         <div className="flex items-center mb-4">
@@ -223,7 +199,7 @@ const Search: React.FC<Props> = ({ words, setWords }) => {
           return (
             !arr.includes(meaning.partOfSpeech) && (
               <div key={meaning.partOfSpeech}>
-                {index !== 0 && (
+                {data.meanings.length - 1 !== index && (
                   <hr className="border-primary-700 opacity-40 my-4" />
                 )}
                 <p className="text-primary-900 font-bold text-lg mb-1 dark:text-neutral-200">

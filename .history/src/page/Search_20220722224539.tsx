@@ -156,11 +156,11 @@ const Search: React.FC<Props> = ({ words, setWords }) => {
     new Audio(src).play();
   };
 
-  // const handleAddFolder = () => {
-  //   setFolders({
-  //     id: Date.now(),
-  //   });
-  // };
+  const handleAddFolder = () => {
+    setFolders({
+      id: Date.now(),
+    });
+  };
 
   const arr: string[] = [];
 

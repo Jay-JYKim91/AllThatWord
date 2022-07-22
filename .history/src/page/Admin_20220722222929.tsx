@@ -13,13 +13,13 @@ import { WordProp } from './Search';
 type Props = {
   words: LooseObj;
   setWords: React.Dispatch<React.SetStateAction<LooseObj>>;
-  // folders: LooseObj;
-  // setFolders: React.Dispatch<React.SetStateAction<LooseObj>>;
+  folders: LooseObj;
+  setFolders: React.Dispatch<React.SetStateAction<LooseObj>>;
 };
 
 type ViewMode = 'flashcard' | 'list';
 
-const Admin: React.FC<Props> = ({ words, setWords }) => {
+const Admin: React.FC<Props> = ({ words, setWords, folders, setFolders }) => {
   const navigate = useNavigate();
   const userInfo = useContext(AuthContext);
   const [viewMode, setViewMode] = useState<ViewMode>('list');

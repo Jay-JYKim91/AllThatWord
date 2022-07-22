@@ -1,4 +1,5 @@
 import React from 'react';
+import { UserCredential } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import { AiFillGoogleCircle, AiFillGithub } from 'react-icons/ai';
 import * as authFunctions from '../services/auth_service';

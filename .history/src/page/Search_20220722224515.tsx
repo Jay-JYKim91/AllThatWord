@@ -10,7 +10,7 @@ import {
 import { MdOutlineError } from 'react-icons/md';
 import { GiSpeaker } from 'react-icons/gi';
 import { HiDocumentAdd, HiDocumentRemove } from 'react-icons/hi';
-// import { BsPlusLg } from 'react-icons/bs';
+import { BsPlusLg } from 'react-icons/bs';
 import { LooseObj } from 'App';
 import * as repo from 'services/repository';
 import searchByQuery from '../services/dictionaryAPI';
@@ -156,11 +156,11 @@ const Search: React.FC<Props> = ({ words, setWords }) => {
     new Audio(src).play();
   };
 
-  // const handleAddFolder = () => {
-  //   setFolders({
-  //     id: Date.now(),
-  //   });
-  // };
+  const handleAddFolder = () => {
+    setFolders({
+      id: Date.now(),
+    });
+  };
 
   const arr: string[] = [];
 

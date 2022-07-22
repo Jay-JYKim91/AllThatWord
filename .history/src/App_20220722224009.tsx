@@ -16,21 +16,17 @@ export interface LooseObj {
   [key: string]: object;
 }
 
-// export type foldersObj = {
-//   [key: string]: folderProps;
-// }
-
-// export type folderProps = {
-//   id: number;
-//   name: string;
-//   words: {};
-// };
+export type folderProps = {
+  id: number;
+  name: string;
+  words: {};
+};
 
 const App: React.FC = () => {
   const navigate: NavigateFunction = useNavigate();
   const userInfo = useContext(AuthContext);
   const [words, setWords] = useState<LooseObj>({});
-  // const [folders, setFolders] = useState<foldersObj>({});
+  const [folders, setFolders] = useState<LooseObj>({});
   const [theme, setTheme] = useState('light');
 
   console.log(userInfo);
@@ -135,8 +131,8 @@ const App: React.FC = () => {
                 <Search
                   words={words}
                   setWords={setWords}
-                  // folders={folders}
-                  // setFolders={setFolders}
+                  folders={folders}
+                  setFolders={setFolders}
                 />
               }
             />
@@ -147,8 +143,8 @@ const App: React.FC = () => {
                 <Admin
                   words={words}
                   setWords={setWords}
-                  // folders={folders}
-                  // setFolders={setFolders}
+                  folders={folders}
+                  setFolders={setFolders}
                 />
               }
             />

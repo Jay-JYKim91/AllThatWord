@@ -135,8 +135,8 @@ const App: React.FC = () => {
                 <Search
                   words={words}
                   setWords={setWords}
-                  // folders={folders}
-                  // setFolders={setFolders}
+                  folders={folders}
+                  setFolders={setFolders}
                 />
               }
             />
@@ -147,8 +147,8 @@ const App: React.FC = () => {
                 <Admin
                   words={words}
                   setWords={setWords}
-                  // folders={folders}
-                  // setFolders={setFolders}
+                  folders={folders}
+                  setFolders={setFolders}
                 />
               }
             />
