@@ -84,6 +84,7 @@ TBD
 <img src="./docs/save_word_function.gif" width="75%" alt="save_word" />
 
 ### Check my words using both viewmodes
+
 | List mode                                             | Flashcard mode                                          |
 | ----------------------------------------------------- | ------------------------------------------------------- |
 | <img src="./docs/view_saved_words.gif" alt="admin" /> | <img src="./docs/flashcard_function.gif" alt="admin" /> |
@@ -96,4 +97,4 @@ TBD
 
 ## Troubleshooting
 
-TBD
+You can read my project log [HERE](https://velog.io/@jay_jykim91/Project-Log-AllThatWord).
