@@ -62,6 +62,7 @@ You can read my project log [HERE](https://velog.io/@jay_jykim91/Project-Log-All
 #### Nice to have
 
 - Users can use dark mode.
+- Users can handle words using multiple folders.
 
 ---
 
@@ -75,9 +76,11 @@ You can read my project log [HERE](https://velog.io/@jay_jykim91/Project-Log-All
 
 <img src="./docs/login_function.gif" width="75%" alt="login" />
 
-### Save words
+### Save words using multiple folders
 
-<img src="./docs/save_word_function.gif" width="75%" alt="save_word" />
+| Save words                                              | Check words on Admin page                        |
+| ------------------------------------------------------- | ------------------------------------------------ |
+| <img src="./docs/save_word_function.gif" alt="admin" /> | <img src="./docs/check_words.gif" alt="admin" /> |
 
 ### Check my words using both viewmodes
 
